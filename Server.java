@@ -37,14 +37,14 @@ public class Server {
 				bytes += length;
 	    }
 //	    long timeS = (System.nanoTime() - startTime) / 1000000000;
-	    long timeS = (System.currentTimeMillis() - startTime) / 1000;
+	    long timeMS = System.currentTimeMillis() - startTime;
 	    is.close();
 	    client.close();
 	    server.close();
 	    
-	    int kbReceive = (int) (bytes / 1000);
+	    long kbReceive = bytes / 1000;
 	    
-	    double rate = kbReceive * 8 / timeS / 1000;
+	    double rate = kbReceive * 8 / timeMS;
 	    
 	    System.out.println("received = " + kbReceive + " KB" + "; rate = " + rate + " Mbps");
 	}
