@@ -25,7 +25,6 @@ public class Client {
 			os.write(oneChunk);
 			++totalChunks;
 			ifTimeOut = System.nanoTime() - startTime >= (long) timeNS;
-			//System.out.println(totalChunks);
 		}
 
 		os.close();
