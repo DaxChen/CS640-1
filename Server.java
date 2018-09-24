@@ -27,7 +27,7 @@ public class Server {
 		is = new DataInputStream(client.getInputStream());
 		
 		// track time
-	    long startTime = System.nanoTime();
+	    long startTime = System.currentTimeMillis();
 	    byte[] readBuff= new byte[1000];
 		int length = is.read(readBuff,0,readBuff.length);
 		long bytes = length;
@@ -36,7 +36,8 @@ public class Server {
 			if (length > 0)
 				bytes += length;
 	    }
-	    long timeS = (System.nanoTime() - startTime) / 1000000000;
+//	    long timeS = (System.nanoTime() - startTime) / 1000000000;
+	    long timeS = (System.currentTimeMillis() - startTime) / 1000000000;
 	    is.close();
 	    client.close();
 	    server.close();
