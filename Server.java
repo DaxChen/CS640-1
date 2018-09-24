@@ -37,7 +37,7 @@ public class Server {
 				bytes += length;
 	    }
 //	    long timeS = (System.nanoTime() - startTime) / 1000000000;
-	    long timeS = (System.currentTimeMillis() - startTime) / 1000000000;
+	    long timeS = (System.currentTimeMillis() - startTime) / 1000;
 	    is.close();
 	    client.close();
 	    server.close();

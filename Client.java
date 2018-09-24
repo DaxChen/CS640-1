@@ -14,24 +14,27 @@ public class Client {
 
 	private void sendData(int timeSeconds) throws IOException {
 		DataOutputStream os = new DataOutputStream(socket.getOutputStream());
-		long timeNS = (long) timeSeconds * 1000000000;
+		long timeMS = (long) timeSeconds * 1000;
 
 		int totalChunks = 0;
 		boolean ifTimeOut = false;
-		long startTime = System.nanoTime();
+		long startTime = System.currentTimeMillis();
 
 		byte[] oneChunk = new byte[1000];
 		while (!ifTimeOut) {
 			os.write(oneChunk);
 			++totalChunks;
-			ifTimeOut = System.nanoTime() - startTime >= (long) timeNS;
+			ifTimeOut = System.currentTimeMillis() - startTime >= (long) timeMS;
 		}
+		
+		long endTime = System.currentTimeMillis();
+		long duration = (endTime - startTime) / 1000;
 
 		os.close();
 		socket.close();
 		
 		int kbSent = totalChunks;
-		double sentRate = kbSent * 8 / 1000 / timeSeconds;
+		double sentRate = kbSent * 8 / 1000 / duration;
 		System.out.println("sent=" + kbSent + " KB " + "rate=" + sentRate + " Mbps");
 	}
 
