@@ -28,13 +28,13 @@ public class Client {
 		}
 		
 		long endTime = System.currentTimeMillis();
-		long duration = (endTime - startTime) / 1000;
+		long durationMS = endTime - startTime;
 
 		os.close();
 		socket.close();
 		
 		int kbSent = totalChunks;
-		double sentRate = kbSent * 8 / 1000 / duration;
+		double sentRate = kbSent * 8 / durationMS;
 		System.out.println("sent=" + kbSent + " KB " + "rate=" + sentRate + " Mbps");
 	}
 
