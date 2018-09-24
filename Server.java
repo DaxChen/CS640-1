@@ -33,7 +33,8 @@ public class Server {
 		long bytes = length;
 	    while (length != -1) {
 	    	length = is.read(readBuff,0,readBuff.length);
-			bytes += length;
+			if (length > 0)
+				bytes += length;
 	    }
 	    long timeS = (System.nanoTime() - startTime) / 1000000000;
 	    is.close();
