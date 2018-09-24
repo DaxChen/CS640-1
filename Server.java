@@ -44,7 +44,7 @@ public class Server {
 	    
 	    int kbReceive = (int) (bytes / 1000);
 	    
-	    double rate = kbReceive / timeS * 8 / 1000;
+	    double rate = kbReceive * 8 / timeS / 1000;
 	    
 	    System.out.println("received = " + kbReceive + " KB" + "; rate = " + rate + " Mbps");
 	}
