@@ -34,7 +34,7 @@ public class Iperfer {
 			try {
 				port = Integer.parseInt(args[4]);
 			} catch(Exception e) {
-				System.out.println("Caught exception when parsing port number: " + args[2]);
+				System.out.println("Caught exception when parsing port number: " + args[4]);
 				System.exit(1);
 			}
 
