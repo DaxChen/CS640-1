@@ -39,7 +39,7 @@ public class Iperfer {
 			}
 
 			try {
-				port = Integer.parseInt(args[6]);
+				time = Integer.parseInt(args[6]);
 			} catch(Exception e) {
 				System.out.println("Caught exception when parsing time: " + args[6]);
 				System.exit(1);
